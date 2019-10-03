@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/material.min.css">
+    <link rel="stylesheet" type="text/css" href="css/mycss.css">
+
+    <script type="text/javascript" src="css/material.min.js"></script>
+    <script type="text/javascript" src="js/battleship.js"></script>
+
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+
+
+    <meta charset="UTF-8">
+    <title>Battleship!</title>
+</head>
+
+<body class="mdl-color--grey-300">
+    <div id="main" class="mdl-grid mdl-grid--no-spacing ">
+
+        <div id="leader_board" class="mdl-cell mdl-cell--12-col mdl-color--white hidden">
+
+            <div class="mdl-grid no-margin-padding mdl-color--blue-grey-700" style="padding-left: 40px;">
+                <h1 class="mdl-typography--display-3 mdl-color-text--white">SCORE BOARD</h1>
+            </div>
+
+
+            <div class="mdl-grid center-items">
+
+                <div class="mdl-cell--6-col">
+                    <ul class='mdl-list center-items'>
+                        <li id="0_name" class="mdl-list__item">1. --</li>
+                        <hr>
+                        <li id="1_name" class="mdl-list__item">2. --</li>
+                        <hr>
+                        <li id="2_name" class="mdl-list__item">3. --</li>
+                        <hr>
+                        <li id="3_name" class="mdl-list__item">4. --</li>
+                        <hr>
+                        <li id="4_name" class="mdl-list__item">5. --</li>
+                        <hr>
+                        <li id="5_name" class="mdl-list__item">6. --</li>
+                        <hr>
+                        <li id="6_name" class="mdl-list__item">7. --</li>
+                        <hr>
+                        <li id="7_name" class="mdl-list__item">8. --</li>
+                        <hr>
+                        <li id="8_name" class="mdl-list__item">9. --</li>
+                        <hr>
+                        <li id="9_name" class="mdl-list__item">10. --</li>
+                    </ul>
+                </div>
+
+                <div class="mdl-cell--6-col">
+                    <ul class='mdl-list center-items'>
+                        <li id="0_score" class="mdl-list__item">--</li>
+                        <hr>
+                        <li id="1_score" class="mdl-list__item">--</li>
+                        <hr>
+                        <li id="2_score" class="mdl-list__item">--</li>
+                        <hr>
+                        <li id="3_score" class="mdl-list__item">--</li>
+                        <hr>
+                        <li id="4_score" class="mdl-list__item">--</li>
+                        <hr>
+                        <li id="5_score" class="mdl-list__item">--</li>
+                        <hr>
+                        <li id="6_score" class="mdl-list__item">--</li>
+                        <hr>
+                        <li id="7_score" class="mdl-list__item">--</li>
+                        <hr>
+                        <li id="8_score" class="mdl-list__item">--</li>
+                        <hr>
+                        <li id="9_score" class="mdl-list__item">--</li>
+                    </ul>
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+        <div class="mdl-cell mdl-cell--12-col">
+
+            <div class="mdl-grid center-items">
+                <div class="mdl-cell--8-col">
+                    <div class="mdl-grid center-items">
+                        <div id="battleship_panel" class="mdl-typography--text-center hidden"
+                            style="width: 524px; height: 660px; background-color:  #455A64">
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <!-- Turn Switcher Indicator hidden -->
+        <div id="turn_switch_panel" class="mdl-cell mdl-cell--12-col turn_switch_panel hidden">
+
+            <div class="mdl-grid center-items">
+                <div class="mdl-card mdl-shadow--8dp">
+
+
+                    <h1 class="mdl-typography--display-3 mdl-typography--text-center no-margin-padding mdl-color-text--white"
+                        style="padding: 20px; background-color: #455A64">Ready To Switch?</h1>
+
+                    <div class="mdl-grid" style="margin-right: 20px;">
+
+                        <div class="mdl-cell mdl-cell--6-col">
+                            <h3 id="turn_p1_name" class="mdl-typography--display-1 mdl-typography--text-center">Player 1
+                            </h3>
+                        </div>
+
+
+                        <div class="mdl-cell mdl-cell--6-col">
+                            <div class="mdl-grid" style="margin-top: 22px;">
+                                <div class="mdl-cell mdl-cell--6-col center-items">
+                                    <span class="turn_switch_label_hit">Hits</span>
+                                    <span id="turn_p1_hit" class="turn_stat">0</span>
+                                </div>
+                                <div class="mdl-cell mdl-cell--6-col">
+                                    <span class="turn_switch_label_miss">Misses</span>
+                                    <span id="turn_p1_miss" class="turn_stat">0</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mdl-cell mdl-cell--6-col">
+                            <h3 id="turn_p2_name" class="mdl-typography--display-1 mdl-typography--text-center">Player 2
+                            </h3>
+                        </div>
+
+
+                        <div class="mdl-cell mdl-cell--6-col">
+                            <div class="mdl-grid" style="margin-top: 22px;">
+                                <div class="mdl-cell mdl-cell--6-col center-items">
+                                    <span class="turn_switch_label_hit">Hits</span>
+                                    <span id="turn_p2_hit" class="turn_stat">0</span>
+                                </div>
+                                <div class="mdl-cell mdl-cell--6-col">
+                                    <span class="turn_switch_label_miss">Misses</span>
+                                    <span id="turn_p2_miss" class="turn_stat">0</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <h4 class="mdl-typography--body-1 mdl-typography--text-center">It is <span
+                            id="turn_name_indicator">{Name's}</span>'s turn</h4>
+                    <div>
+                        <button id="btn_switch_turn" class="mdl-button mdl-js-button mdl-button--colored"
+                            style="float: right; margin: 8px;">Ready</button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- Game Init Panels -->
+        <div id="init_panel_board" class="mdl-cell--8-col">
+            <div class="mdl-grid center-items">
+                <div id="gamePanel" class="mdl-card mdl-shadow--8dp"></div>
+            </div>
+        </div>
+
+
+        <!-- Game Init Coordinate Entry Panels -->
+        <div id="init_panel_entry" class="mdl-cell--4-col mdl-color--white mdl-shadow--8dp">
+            <div class="mdl-grid mdl-color--blue-grey-700">
+                <div class="mdl-cell--12-col ">
+                    <h1 id="setup_name" class="mdl-typography--display-1 mdl-color-text--white title-offset">Player 1
+                    </h1>
+                </div>
+            </div>
+
+            <div id="sidepanel" class="mdl-grid mdl-color--white">
+                <div class="mdl-cell mdl-cell--12-col">
+
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text" id="name_entry">
+                        <label class="mdl-textfield__label" for="name_entry">Player Name</label>
+                    </div>
+
+
+                    <div>
+                        <table class="mdl-data-table mdl-js-data-table" style="width: 100%">
+                            <thead>
+                                <tr>
+                                    <th class="mdl-data-table__cell--non-numeric ">Ship Class</th>
+                                    <th>Coordinates</th>
+                                    <th>Size</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="mdl-data-table__cell--non-numeric">Aircraft Carrier</td>
+
+                                    <td>
+                                        <div id="aircraft_carrier_coor_holder"
+                                            class="mdl-textfield mdl-js-textfield coor_entry">
+                                            <input class="mdl-textfield__input" type="text" id="aircraft_carrier_coor">
+                                            <label class="mdl-textfield__label"
+                                                for="aircraft_carrier_coor">A:A1-A5</label>
+                                            <span class="mdl-textfield__error">Invalid Coordinates</span>
+                                        </div>
+                                    </td>
+                                    <td>5</td>
+
+                                </tr>
+                                <tr>
+                                    <td class="mdl-data-table__cell--non-numeric">Battleship</td>
+                                    <td>
+                                        <div id="battleship_coor_holder"
+                                            class="mdl-textfield mdl-js-textfield coor_entry">
+                                            <input class="mdl-textfield__input" type="text" id="battleship_coor">
+                                            <label class="mdl-textfield__label" for="battleship_coor">B:B1-B4</label>
+                                            <span class="mdl-textfield__error">Invalid Coordinates</span>
+                                        </div>
+                                    </td>
+                                    <td>4</td>
+                                </tr>
+                                <tr>
+                                    <td class="mdl-data-table__cell--non-numeric">Submarine</td>
+
+                                    <td>
+                                        <div id="sub_coor_holder" class="mdl-textfield mdl-js-textfield coor_entry">
+                                            <input class="mdl-textfield__input" type="text" id="sub_coor">
+                                            <label class="mdl-textfield__label" for="sub_coor">S:C1-C3</label>
+                                            <span class="mdl-textfield__error">Invalid Coordinates</span>
+                                        </div>
+                                    </td>
+                                    <td>3</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <hr>
+                        <!-- Colored raised button -->
+                        <button id="confirm" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+                            Confirm
+                        </button>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+</html>
