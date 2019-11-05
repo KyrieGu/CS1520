@@ -1,0 +1,20 @@
+# Project 1 - Battleship
+
+## Name
+Tianrun Gu
+
+## Breakdown:
+* Turns proceed as described:					13%
+    * -2% Does not alert user of their score if they won
+    * -5% Final score is not calculated as 24 - (2 points for each hit against them) as described in the README
+* Game boards are displayed properly:			25%
+* Event handling is processed as described:		15%
+* Ship placement strings are correctly parsed:	15%
+* Score saving works appropriately:				13%
+    * -2% High score are not limited to 10, substring is not defined for an array
+* Clear and readable presentation:				5%
+* Submission/info sheet:						4%
+    * -1% did not fill in info_sheet.txt
+
+## Grade
+90%
